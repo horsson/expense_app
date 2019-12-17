@@ -16,6 +16,21 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
         accentColor: Colors.amber,
+        fontFamily: 'Quicksand',
+        bottomSheetTheme: BottomSheetThemeData(
+          backgroundColor: Colors.black.withOpacity(0),
+        ),
+        textTheme: ThemeData.light().textTheme.copyWith(
+              title: TextStyle(fontFamily: 'OpenSans'),
+            ),
+        appBarTheme: AppBarTheme(
+            textTheme: ThemeData.light().textTheme.copyWith(
+                  title: TextStyle(
+                    fontFamily: 'OpenSans',
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                )),
       ),
     );
   }
@@ -44,18 +59,18 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   List<Transaction> _userTransactions = [
-    Transaction(
-      id: 't1',
-      title: 'New shoes',
-      amount: 69.99,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Weekly whatever',
-      amount: 169.99,
-      date: DateTime.now(),
-    ),
+//    Transaction(
+//      id: 't1',
+//      title: 'New shoes',
+//      amount: 69.99,
+//      date: DateTime.now(),
+//    ),
+//    Transaction(
+//      id: 't2',
+//      title: 'Weekly whatever',
+//      amount: 169.99,
+//      date: DateTime.now(),
+//    ),
   ];
 
   void _addNewTransaction(String title, double amount) {
@@ -75,7 +90,11 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter App'),
+        title: Text(
+          'Personal Expense',
+          style: TextStyle(fontFamily: 'Open Sans'),
+        ),
+        centerTitle: false,
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.add),
