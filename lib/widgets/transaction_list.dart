@@ -34,6 +34,7 @@ class TransactionList extends StatelessWidget {
           })
         : ListView.builder(
             itemBuilder: (ctx, index) {
+              final mediaQuery = MediaQuery.of(context);
               return Card(
                 elevation: 5,
                 margin: EdgeInsets.symmetric(vertical: 8, horizontal: 5),
@@ -54,7 +55,7 @@ class TransactionList extends StatelessWidget {
                   subtitle: Text(
                     DateFormat.yMMMEd().format(transactions[index].date),
                   ),
-                  trailing: MediaQuery.of(context).size.width > 460
+                  trailing: mediaQuery.size.width > 460
                       ? FlatButton.icon(
                           textColor: Theme.of(context).errorColor,
                           icon: Icon(Icons.delete),
