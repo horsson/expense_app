@@ -7,10 +7,15 @@ import 'adapative_flat_button.dart';
 class NewTransaction extends StatefulWidget {
   final Function(String, double, DateTime) addTx;
 
-  NewTransaction(this.addTx);
+  NewTransaction(this.addTx) {
+    print("Constructor method is called NewTransaction.");
+  }
 
   @override
-  _NewTransactionState createState() => _NewTransactionState();
+  _NewTransactionState createState() {
+    print("CreateState is called NewTransaction");
+    return _NewTransactionState();
+  }
 }
 
 class _NewTransactionState extends State<NewTransaction> {
@@ -18,6 +23,18 @@ class _NewTransactionState extends State<NewTransaction> {
   final _amountController = TextEditingController();
 
   DateTime _selectedDate;
+
+  @override
+  void initState() {
+    print("initState is called NewTransaction");
+    super.initState();
+  }
+
+  @override
+  void didUpdateWidget(NewTransaction oldWidget) {
+    print("didUpdateWidget is called NewTransaction");
+    super.didUpdateWidget(oldWidget);
+  }
 
   void _submitData() {
     final enteredTitle = _titleController.text;
